@@ -5,6 +5,11 @@ import (
 	"os"
 )
 
+type Worker struct {
+	Name string
+	Age  int
+}
+
 func main() {
 	fmt.Println("Hello, World!")
 
@@ -19,6 +24,30 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Println(os.Args[1])
+
+	worker := Worker{
+		Name: "Frank",
+		Age:  30,
+	}
+
+	worker.Age = 31
+	fmt.Println(worker)
+
+	w := &Worker{
+		Name: "Super",
+		Age:  50,
+	}
+	SuperWorker(w)
+	w.WxWorker()
+	fmt.Println(w.Age)
+}
+
+func (w *Worker) WxWorker() {
+	w.Age += 4000
+}
+
+func SuperWorker(wx *Worker) {
+	wx.Age += 150
 }
 
 func getPower(a string, b int) (string, int) {
