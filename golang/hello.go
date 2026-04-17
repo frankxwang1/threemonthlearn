@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"os"
+	// "os"
 )
 
 type Worker struct {
@@ -20,10 +20,10 @@ func main() {
 	name = "frank"
 	fmt.Println(name)
 
-	if len(os.Args) != 2 {
-		os.Exit(1)
-	}
-	fmt.Println(os.Args[1])
+	// if len(os.Args) != 2 {
+	// 	os.Exit(1)
+	// }
+	// fmt.Println(os.Args[1])
 
 	worker := Worker{
 		Name: "Frank",
@@ -40,6 +40,7 @@ func main() {
 	SuperWorker(w)
 	w.WxWorker()
 	fmt.Println(w.Age)
+	forExample()
 }
 
 func (w *Worker) WxWorker() {
@@ -55,5 +56,19 @@ func getPower(a string, b int) (string, int) {
 		return a, b
 	} else {
 		return "default", 0
+	}
+}
+
+func forExample() {
+	// for i := 0; i < 10; i++ {
+	// 	fmt.Println(i)
+	// }
+	// for i := range [10]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9} {
+	// 	fmt.Println(i)
+	// }
+
+	m := map[string]int{"k1": 1, "k2": 2}
+	for k, v := range m {
+		fmt.Println(k, v)
 	}
 }
