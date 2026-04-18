@@ -41,6 +41,8 @@ func main() {
 	w.WxWorker()
 	fmt.Println(w.Age)
 	forExample()
+	arrayExample()
+	slicesExample()
 }
 
 func (w *Worker) WxWorker() {
@@ -71,4 +73,43 @@ func forExample() {
 	for k, v := range m {
 		fmt.Println(k, v)
 	}
+}
+
+func arrayExample() {
+	var a [5]int
+	fmt.Println(a)
+
+	a[4] = 129
+	fmt.Println(a)
+
+	b := [5]int{1, 2, 3, 4, 5}
+	fmt.Println(b)
+	b[4] = 129
+	fmt.Println(b)
+
+	b = [...]int{100, 3: 400, 500}
+	fmt.Println("idx:", b)
+}
+
+func slicesExample() {
+	var s []string
+	fmt.Println(s, s == nil, len(s))
+
+	// s1 := make([]int, 3)
+	// fmt.Println(s1)
+
+	// s1[0] = 1
+	// s1[1] = 2
+	// s1[2] = 3
+	// fmt.Println(s1)
+
+	// l := s1[2:4]
+	// fmt.Println(l)
+
+	xl := s[:0]
+	fmt.Println(xl)
+
+	var fn func()
+	fmt.Println(fn == nil)
+
 }
