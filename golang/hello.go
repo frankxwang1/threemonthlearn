@@ -112,4 +112,23 @@ func slicesExample() {
 	var fn func()
 	fmt.Println(fn == nil)
 
+	// scores := []int{1,2,3,4,5}
+	// scores := make([]int, 5)
+	scores := make([]int, 0, 10)
+	// scores = append(scores, 8)
+	scores = scores[0:8]
+	scores[6] = 777
+	fmt.Println(scores, len(scores))
+
+	c := cap(scores)
+	fmt.Println(c)
+
+	scores = removeAtIndex(scores, 2)
+	fmt.Println(scores) //
+}
+
+func removeAtIndex(source []int, index int) []int {
+	lastIndex := len(source) - 1
+	source[index], source[lastIndex] = source[lastIndex], source[index]
+	return source[:lastIndex]
 }
